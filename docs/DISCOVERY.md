@@ -278,7 +278,7 @@ The usage estimate assumes uncached text at USD 1.00 per million input tokens an
 
 | Decision | Due | Initial direction |
 | --- | --- | --- |
-| Persistence baseline and exact deployment pins | Foundation persistence increment | Verify PostgreSQL major and minor, Psycopg, SQLAlchemy, and Alembic with a clean Compose startup and migration cycle before locking deployment versions. |
+| Hosted database role and deployment settings | Optional cloud release | The local persistence baseline pins PostgreSQL 18.7 by digest and locks Python dependencies. Select least-privilege app and migration roles, network access, and connection settings before hosting. |
 | Pre-authentication and session timeouts | Before B03 implementation | Use seeded local accounts and server-managed sessions. Review the defaults and test the security criteria in [SECURITY.md](SECURITY.md). |
 | Input limits and evidence locator details | Before B04–B05 | Start with the proposed PDF caps and page plus excerpt references. Calibrate against sample fixtures and enforce resource bounds. |
 | Live model, provider allocation, and release performance thresholds | AI Core and evaluation | Start with offline fixtures, record real measurements, confirm account availability, and obtain separate authorization for paid evaluation. |

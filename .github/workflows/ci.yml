@@ -22,3 +22,18 @@ jobs:
       - run: uv run --no-sync ruff check .
       - run: uv run --no-sync ruff format --check .
       - run: uv run --no-sync pytest
+      - name: Start PostgreSQL
+        run: |
+          password="$(openssl rand -hex 24)"
+          echo "::add-mask::$password"
+          echo "DUSEMA_DATABASE_PASSWORD=$password" >> "$GITHUB_ENV"
+          DUSEMA_DATABASE_PASSWORD="$password" docker compose up -d --wait --wait-timeout 60 postgres
+      - name: Check migrations on a clean database
+        run: |
+          uv run --no-sync alembic upgrade head
+          uv run --no-sync alembic current --check-heads
+          uv run --no-sync alembic check
+      - run: uv run --no-sync pytest -m integration
+      - name: Remove the job database
+        if: always() && env.DUSEMA_DATABASE_PASSWORD != ''
+        run: docker compose down --volumes

@@ -8,7 +8,8 @@ Deliver the invoice-to-purchase-order workflow using synthetic Spanish PDFs and 
 | --- | --- |
 | Discovery | Approved scope, acceptance examples, security policy, ADRs, and Definition of Done |
 | Foundation application | Reproducible local Python environment, FastAPI liveness route, tests, quality checks, and CI configuration |
-| Foundation persistence | PostgreSQL starts with Compose, an application session connects, and Alembic applies migrations on a clean database |
+| Foundation persistence | Verified locally. PostgreSQL starts with Compose, application sessions commit and roll back, liveness and database readiness report independently, and Alembic applies the organization migration from a clean database |
+| Foundation identity | Seeded local accounts, server-managed sessions, CSRF protection, and organization-scoped role checks are verified before protecting business workflows |
 | AI Core | Baseline, fixture, and model extractors share a schema, persist provenance, and expose failure and usage outcomes. Paid live calls require approval |
 | Invoice workflow and review UI | A local demo demonstrates valid posting, commercial discrepancies, duplicates, human decisions, and audit |
 | Evaluation and portfolio | Reproducible results compare template and regex extraction, LLM extraction, and reference values using the 36/24 dataset split. A portfolio walkthrough explains the design and measured limitations |
