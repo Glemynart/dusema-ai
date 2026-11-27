@@ -1,6 +1,8 @@
 # DUSEMA AI
 
-DUSEMA AI is an enterprise automation project. Its first release will help accounts payable teams validate synthetic invoices against purchase orders, review documentary evidence, and approve posting to a simulated ERP.
+DUSEMA AI is an enterprise AI engineering portfolio project in active development. It demonstrates professional skills in designing, testing, and evaluating business workflows that combine AI-assisted document processing with deterministic validation, human approval, and auditability.
+
+The first planned release focuses on accounts payable. It will help teams validate synthetic invoices against purchase orders, review documentary evidence, and approve posting to a simulated ERP.
 
 Foundation provides a FastAPI application, a PostgreSQL development service, and a versioned Alembic schema. `GET /health` reports liveness. `GET /ready` checks whether the application can connect to PostgreSQL and run a query.
 
