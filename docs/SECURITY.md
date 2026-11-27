@@ -18,3 +18,12 @@ These are implementation criteria for the demo workflow. The first Foundation in
 ## Verification before exposing business endpoints
 
 Automate tests for absent, expired, rotated and revoked sessions, each permitted role, access to another user's or organization's records, read-only auditor behavior, uploader approval denial, rejected CSRF or origin checks, and valid same-origin requests. Verify that no rejected mutation writes an invoice, posts to the simulated ERP, or advances the workflow. Confirm cookies, redaction, and private file access in the environment that serves the demo.
+
+## GitHub repository security controls
+
+The public GitHub repository has these free repository-level controls enabled:
+
+- Dependency graph, Dependabot alerts, and Dependabot security updates for supported dependencies and GitHub Actions.
+- Secret scanning and repository-level push protection.
+- CodeQL default setup for Python and GitHub Actions on standard GitHub-hosted runners.
+- The CI workflow keeps its token permission limited to `contents: read`; CodeQL uses its GitHub-managed, scoped analysis workflow.
